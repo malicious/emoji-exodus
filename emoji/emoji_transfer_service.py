@@ -70,12 +70,9 @@ def transfer(source_dict, destination_service, source_emoji_name):
             return None
         else:
             name_of_source_emoji_in_destination = collision_free_name(destination_dict, source_emoji_name)
-            print("source emoji '{source_emoji_name}' exists as destination emoji '{identical_destination_emoji_name}' with the same image.  Creating alias '{aliased_name}'.".format(
+            print("source emoji '{source_emoji_name}' exists as destination emoji '{identical_destination_emoji_name}' with the same image.  Creating new '{aliased_name}' anyway.".format(
                 source_emoji_name=source_emoji_name,
                 identical_destination_emoji_name=destination_emoji_name_having_identical_image,
                 aliased_name=name_of_source_emoji_in_destination
             ))
-
-            return destination_service.add_alias(name_of_source_emoji_in_destination, destination_emoji_name_having_identical_image)
-
-
+            return destination_service.add_emoji(name_of_source_emoji_in_destination, source_emoji_image, emoji_image_url)
