@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     name='transfer',
     version='0.1',
-    py_modules=['transfer_cli'],
+    py_modules=['scripts.transfer_cli'],
     install_requires=[
         'Click',
     ],
@@ -12,4 +12,5 @@ setup(
         [console_scripts]
         transfer=scripts.transfer_cli:import_emoji
     ''',
+    packages=['emoji', 'emoji.dicts', 'image', 'util']
 )
